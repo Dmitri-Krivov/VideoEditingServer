@@ -21,8 +21,8 @@ app.get('/', (req, res) => {
             if (sign == ">") { o[keyInObj] > valueToFind ? some++ : some }
             if (sign == "<") { o[keyInObj] < valueToFind ? some++ : some }
             if (sign == "strictEquality") {
-                if (Array.isArray(valueToFind)) {
-                    _.isEqual(o[keyInObj], valueToFind) ? some++ : some
+                if (Array.isArray(valueToFind)||_.isEqual(o[keyInObj], valueToFind)) {
+                      some++ 
                 } else {
                     o[keyInObj] == valueToFind ? some++ : some
                 }
